@@ -1,0 +1,19 @@
+%h1 Listing wanted_books
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @wanted_books.each do |wanted_book|
+    %tr
+      %td= wanted_book.name
+      %td= link_to 'Show', wanted_book
+      %td= link_to 'Edit', edit_wanted_book_path(wanted_book)
+      %td= link_to 'Destroy', wanted_book, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Wanted book', new_wanted_book_path
