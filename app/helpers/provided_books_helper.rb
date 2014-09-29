@@ -1,0 +1,2 @@
+module ProvidedBooksHelper
+end
