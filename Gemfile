@@ -43,6 +43,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
 gem 'less-rails'
+gem 'masonry-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
