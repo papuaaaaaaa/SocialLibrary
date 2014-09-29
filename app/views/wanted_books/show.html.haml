@@ -1,9 +1,13 @@
-%p#notice= notice
+- model_class = WantedBook
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %b Name:
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
   = @wanted_book.name
 
-= link_to 'Edit', edit_wanted_book_path(@wanted_book)
-\|
-= link_to 'Back', wanted_books_path
+
+= link_to t('.back', :default => t("helpers.links.back")), wanted_books_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_wanted_book_path(@wanted_book), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), wanted_book_path(@wanted_book), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

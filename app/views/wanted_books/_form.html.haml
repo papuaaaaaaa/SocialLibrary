@@ -1,13 +1,7 @@
-= form_for @wanted_book do |f|
-  - if @wanted_book.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@wanted_book.errors.count, "error")} prohibited this wanted_book from being saved:"
-      %ul
-        - @wanted_book.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions
-    = f.submit 'Save'
+= form_for @wanted_book, :html => { :class => 'form-horizontal' } do |f|
+  .form-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'form-control'
+  = f.submit nil, :class => 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), wanted_books_path, :class => 'btn btn-default'
