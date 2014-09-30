@@ -25,6 +25,11 @@ class WantedBooksController < ApplicationController
   # POST /wanted_books.json
   def create
     @wanted_book = WantedBook.new(wanted_book_params)
+    amazon = Amazon::Ecs.item_search(@wanted_book.name, :search_index => 'All', :country => 'jp')
+    amazon.items.each do |item|
+      puts item.get('DetailPageURL')  # 詳細ページURLを取得
+      puts item.get('ItemAttributes/Title')  # 商品タイトルを取得
+    end
 
     respond_to do |format|
       if @wanted_book.save

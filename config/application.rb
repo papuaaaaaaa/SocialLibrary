@@ -8,6 +8,12 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
+require 'amazon/ecs'
+Amazon::Ecs.options = {
+    :associate_tag =>     ASSICUATE_TAG,
+    :AWS_access_key_id => AWS_ACCESS_KEY_ID,
+    :AWS_secret_key =>    AWS_SECRET_KEY
+}
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
