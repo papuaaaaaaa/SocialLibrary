@@ -10,7 +10,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 require 'amazon/ecs'
 Amazon::Ecs.options = {
-    :associate_tag =>     ASSICUATE_TAG,
+    :associate_tag =>     ASSOCIATE_TAG,
     :AWS_access_key_id => AWS_ACCESS_KEY_ID,
     :AWS_secret_key =>    AWS_SECRET_KEY
 }
