@@ -29,6 +29,9 @@ class WantedBooksController < ApplicationController
     amazon.items.each do |item|
       puts item.get('DetailPageURL')  # 詳細ページURLを取得
       puts item.get('ItemAttributes/Title')  # 商品タイトルを取得
+      puts item.get('SmallImage')  # 商品タイトルを取得
+      puts item.get('MediumImage')  # 商品タイトルを取得
+      puts item.get('LargeImage')  # 商品タイトルを取得
     end
 
     respond_to do |format|
