@@ -10,9 +10,9 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 require 'amazon/ecs'
 Amazon::Ecs.options = {
-    :associate_tag =>     ASSOCIATE_TAG,
-    :AWS_access_key_id => AWS_ACCESS_KEY_ID,
-    :AWS_secret_key =>    AWS_SECRET_KEY
+    :associate_tag =>     'papuaaaaaaa-22-22',
+    :AWS_access_key_id => 'AKIAIS47ZH3LHW3BNWOA',
+    :AWS_secret_key =>    '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'
 }
 
 # Require the gems listed in Gemfile, including any gems
