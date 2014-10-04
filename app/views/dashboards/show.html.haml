@@ -1,6 +1,9 @@
-%p#notice= notice
+- model_class = Dashboard
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
 
 
-= link_to 'Edit', edit_dashboard_path(@dashboard)
-\|
-= link_to 'Back', dashboards_path
+
+= link_to t('.back', :default => t("helpers.links.back")), dashboards_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_dashboard_path(@dashboard), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), dashboard_path(@dashboard), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

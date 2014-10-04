@@ -1,7 +1,4 @@
-%h1 Editing dashboard
-
-= render 'form'
-
-= link_to 'Show', @dashboard
-\|
-= link_to 'Back', dashboards_path
+- model_class = Dashboard
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"
