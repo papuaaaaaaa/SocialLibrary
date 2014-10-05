@@ -24,7 +24,7 @@ class WantedBooksController < ApplicationController
   # POST /wanted_books
   # POST /wanted_books.json
   def create
-    @wanted_book = WantedBook.new({:name => params['name'], :auther => params['auther'],
+    @wanted_book = WantedBook.new({:title => params['title'], :auther => params['auther'],
       :isbn => params['isbn'], :image_url => params['image_url'], :associate_url => params['associate_url']})
 
     respond_to do |format|
@@ -70,6 +70,6 @@ class WantedBooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wanted_book_params
-      params.require(:wanted_book).permit(:name, :auther, :isbn, :image_url, :associate_url)
+      params.require(:wanted_book).permit(:title, :auther, :isbn, :image_url, :associate_url)
     end
 end

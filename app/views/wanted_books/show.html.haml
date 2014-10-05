@@ -5,7 +5,7 @@
 %p
   %strong= model_class.human_attribute_name(:name) + ':'
   %br
-  = @wanted_book.name
+  = @wanted_book.title
 
 
 = link_to t('.back', :default => t("helpers.links.back")), wanted_books_path, :class => 'btn btn-default'

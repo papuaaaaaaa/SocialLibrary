@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20141004143342) do
   end
 
   create_table "provided_books", force: true do |t|
-    t.string   "name"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "auther"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20141004143342) do
   end
 
   create_table "wanted_books", force: true do |t|
-    t.string   "name"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "auther"

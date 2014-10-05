@@ -3,9 +3,9 @@
   %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %strong= model_class.human_attribute_name(:name) + ':'
+  %strong= model_class.human_attribute_name(:title) + ':'
   %br
-  = @provided_book.name
+  = @provided_book.title
 
 
 = link_to t('.back', :default => t("helpers.links.back")), provided_books_path, :class => 'btn btn-default'
