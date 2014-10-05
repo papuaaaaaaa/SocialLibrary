@@ -3,11 +3,14 @@ Rails.application.routes.draw do
 
   resources :wanted_books
 
+  post 'dashboards/search' => 'dashboards#search', :as => 'search_dashboard'
+  resources :dashboards
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'wanted_books#index'
+  root 'dashboards#search'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

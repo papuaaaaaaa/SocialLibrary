@@ -1,6 +1,12 @@
 class DashboardsController < ApplicationController
   before_action :set_dashboard, only: [:show, :edit, :update, :destroy]
 
+  def search
+    @dashboard ||= Dashboard.new
+    @dashboard.keyword = params[:dashboard][:keyword] unless params[:dashboard] == nil
+    @amazon_elements = Amazon::Ecs.item_search(@dashboard.keyword, :search_index => 'Books', :country => 'jp', :response_group => 'Large').items
+  end
+
   # GET /dashboards
   # GET /dashboards.json
   def index
@@ -69,6 +75,6 @@ class DashboardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dashboard_params
-      params[:dashboard]
+      params.require(:dashboard).permit(:keyword)
     end
 end
