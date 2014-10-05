@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   # post 'provided_books/new' => 'provided_books#new', :as => 'new_provided_books'
   resources :provided_books
 
