@@ -4,7 +4,7 @@ class WantedBooksController < ApplicationController
   # GET /wanted_books
   # GET /wanted_books.json
   def index
-    @wanted_books = WantedBook.all
+    @my_amazon_elements = WantedBook.all
   end
 
   # GET /wanted_books/1
