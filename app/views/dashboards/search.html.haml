@@ -8,4 +8,4 @@
         = f.text_field :keyword, :class => 'form-control', :value => @dashboard.keyword
     = button_tag( class: "btn btn-default btn-sm") do
       = content_tag :span, ' 検索', class: "glyphicon glyphicon-search"
-= render :partial => "/tile_list"
+= render :partial => "shared/tile_list", locals: { my_amazon_elements: @my_amazon_elements, shutter: "shutter" }

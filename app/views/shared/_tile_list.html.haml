@@ -1,0 +1,5 @@
+%div#masonry-container
+  -my_amazon_elements.each do |my_amazon_element|
+    .mas-box
+      =image_tag my_amazon_element[:image_url]
+      =render :partial => shutter, locals: { my_amazon_element: my_amazon_element }

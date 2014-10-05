@@ -24,15 +24,8 @@ class WantedBooksController < ApplicationController
   # POST /wanted_books
   # POST /wanted_books.json
   def create
-    @wanted_book = WantedBook.new(wanted_book_params)
-    amazon = Amazon::Ecs.item_search(@wanted_book.name, :search_index => 'All', :country => 'jp')
-    amazon.items.each do |item|
-      puts item.get('DetailPageURL')  # 詳細ページURLを取得
-      puts item.get('ItemAttributes/Title')  # 商品タイトルを取得
-      puts item.get('SmallImage')  # 商品タイトルを取得
-      puts item.get('MediumImage')  # 商品タイトルを取得
-      puts item.get('LargeImage')  # 商品タイトルを取得
-    end
+    @wanted_book = WantedBook.new({:name => params['name'], :auther => params['auther'],
+      :isbn => params['isbn'], :image_url => params['image_url'], :associate_url => params['associate_url']})
 
     respond_to do |format|
       if @wanted_book.save
@@ -77,6 +70,6 @@ class WantedBooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wanted_book_params
-      params.require(:wanted_book).permit(:name)
+      params.require(:wanted_book).permit(:name, :auther, :isbn, :image_url, :associate_url)
     end
 end

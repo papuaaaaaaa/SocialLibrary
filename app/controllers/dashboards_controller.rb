@@ -4,7 +4,10 @@ class DashboardsController < ApplicationController
   def search
     @dashboard ||= Dashboard.new
     @dashboard.keyword = params[:dashboard][:keyword] unless params[:dashboard] == nil
-    @amazon_elements = Amazon::Ecs.item_search(@dashboard.keyword, :search_index => 'Books', :country => 'jp', :response_group => 'Large').items
+    @my_amazon_elements = []
+    Amazon::Ecs.item_search(@dashboard.keyword, :search_index => 'Books', :country => 'jp', :response_group => 'Large').items.each do |item|
+      @my_amazon_elements.append(MyAmazonElement.new(item))
+    end
   end
 
   # GET /dashboards

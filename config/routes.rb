@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+
+  # post 'provided_books/new' => 'provided_books#new', :as => 'new_provided_books'
   resources :provided_books
 
+  # post 'wanted_books/new' => 'wanted_books#new', :as => 'new_wanted_books'
   resources :wanted_books
 
-  post 'dashboards/search' => 'dashboards#search', :as => 'search_dashboard'
+  # post 'dashboards/new' => 'dashboards#new', :as => 'new_dashboards'
   resources :dashboards
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -11,6 +14,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'dashboards#search'
+  post '/' => 'dashboards#search'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

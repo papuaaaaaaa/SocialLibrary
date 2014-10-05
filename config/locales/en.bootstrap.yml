@@ -11,6 +11,8 @@ en:
       destroy: "Delete"
       new: "New"
       edit: "Edit"
+      add_wanted: "Add To Wanted Books"
+      add_provided: "Add To Provided Books"
     titles:
       edit: "Edit %{model}"
       save: "Save %{model}"
