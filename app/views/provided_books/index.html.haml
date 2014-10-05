@@ -1,4 +1,4 @@
 - model_class = ProvidedBook
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-= render :partial => "shared/tile_list", locals: { my_amazon_elements: @my_amazon_elements, shutter: "" }
+= render :partial => "shared/tile_list", locals: { my_amazon_elements: @my_amazon_elements, shutter: "shutter" }
