@@ -4,7 +4,7 @@ class WantedBooksController < ApplicationController
   # GET /wanted_books
   # GET /wanted_books.json
   def index
-    @my_amazon_elements = WantedBook.all
+    @my_amazon_elements = WantedBook.where(:user_id => current_user.id)
   end
 
   # GET /wanted_books/1
@@ -25,7 +25,7 @@ class WantedBooksController < ApplicationController
   # POST /wanted_books.json
   def create
     @wanted_book = WantedBook.new({:title => params['title'], :auther => params['auther'],
-      :isbn => params['isbn'], :image_url => params['image_url'], :associate_url => params['associate_url']})
+      :isbn => params['isbn'], :image_url => params['image_url'], :associate_url => params['associate_url'], :user_id => current_user.id})
 
     respond_to do |format|
       if @wanted_book.save
