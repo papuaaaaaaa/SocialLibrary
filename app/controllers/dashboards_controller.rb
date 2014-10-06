@@ -5,8 +5,23 @@ class DashboardsController < ApplicationController
     @dashboard ||= Dashboard.new
     @dashboard.keyword = params[:dashboard][:keyword] unless params[:dashboard] == nil
     @my_amazon_elements = []
-    Amazon::Ecs.item_search(@dashboard.keyword, :search_index => 'Books', :country => 'jp', :response_group => 'Large').items.each do |item|
-      @my_amazon_elements.append(MyAmazonElement.new(item))
+
+    retry_count = 0
+    [1, 2, 3].each do |i|
+      begin
+        Amazon::Ecs.item_search(@dashboard.keyword, :search_index => 'Books', :country => 'jp', :response_group => 'Large', :item_page => i).items.each do |item|
+          my_item = MyAmazonElement.new(item)
+          @my_amazon_elements.append(my_item) unless my_item.nil?
+        end
+      rescue
+        retry_count += 1
+        if retry_count < 5
+          sleep(5)
+          retry
+        else
+          return false
+        end
+      end
     end
   end
 

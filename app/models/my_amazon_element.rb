@@ -1,5 +1,8 @@
 class MyAmazonElement
   def self.new(amazon_element)
+    if amazon_element.get_hash('MediumImage') == nil
+      return nil
+    end
     amazon_attributes = amazon_element.get_element('ItemAttributes')
     {
       :title => amazon_attributes.get('Title'),
