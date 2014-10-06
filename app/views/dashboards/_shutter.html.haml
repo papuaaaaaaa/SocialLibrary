@@ -1,3 +1,5 @@
 .shutter
-  = link_to t('.add_want', :default => t("helpers.links.add_wanted")), wanted_books_path(my_amazon_element), :method => :push, :class => 'btn btn-default'
-  = link_to t('.add_provided', :default => t("helpers.links.add_provided")), provided_books_path(my_amazon_element), :method => :push, :class => 'btn btn-default'
+  = link_to 'W', wanted_books_path(my_amazon_element), :method => :push, :class => 'btn btn-default'
+  = link_to 'P', provided_books_path(my_amazon_element), :method => :push, :class => 'btn btn-default'
+  -#= link_to t('.add_want', :default => t("helpers.links.add_wanted")), wanted_books_path(my_amazon_element), :method => :push, :class => 'btn btn-default'
+  -#= link_to t('.add_provided', :default => t("helpers.links.add_provided")), provided_books_path(my_amazon_element), :method => :push, :class => 'btn btn-default'
