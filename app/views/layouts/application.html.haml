@@ -34,8 +34,8 @@
           -#%li= link_to SaleProduct.model_name.human.pluralize.titleize, sale_products_path
           -#%li= link_to Task.model_name.human.pluralize.titleize, tasks_path
           -#%li= link_to TaskSale.model_name.human.pluralize.titleize, task_sales_path
-          -#- if user_signed_in?
-          -# %li= link_to t('top.logout'), destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }
+          - if user_signed_in?
+            %li= link_to t('top.logout'), destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }
 
 
   .container
