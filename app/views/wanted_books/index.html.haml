@@ -2,3 +2,7 @@
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
 = render :partial => "shared/tile_list", locals: { my_amazon_elements: @my_amazon_elements, shutter: "shutter" }
+-if @my_amazon_elements.length == 0
+  %center
+    %p まだアイテムはありません。
+    %p Homeから読みたい本を検索して登録しましょう。
