@@ -1,6 +1,6 @@
 - model_class = Dashboard
 .page-header
-  %h1=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
+  %h1=t '.title', :default => [:'helpers.titles.new', '%{model}'], :model => model_class.model_name.human.titleize
   = form_for @dashboard, :html => { :class => 'form-horizontal'}, :url => {:action => 'search'} do |f|
     .form-group
       = f.label :keyword, :class => 'control-label'

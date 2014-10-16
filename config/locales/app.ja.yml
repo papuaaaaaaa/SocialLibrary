@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      wanted_book: 欲しい本
+      provided_book: 持ってる本
+      dashboard: ダッシュボード
+      community: コミュニティ
+
+    attributes:
+      wanted_book:
+        name: 名前
+      dashboard:
+        keyword: キーワード
+
+  top:
+    home: ホーム
