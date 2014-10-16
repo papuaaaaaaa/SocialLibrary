@@ -1,21 +1,23 @@
-%h1 Listing communities
-
-%table
-  %tr
-    %th Name
-    %th Url
-    %th
-    %th
-    %th
-
-  - @communities.each do |community|
+- model_class = Community
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
     %tr
-      %td= community.name
-      %td= community.url
-      %td= link_to 'Show', community
-      %td= link_to 'Edit', edit_community_path(community)
-      %td= link_to 'Destroy', community, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:url)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @communities.each do |community|
+      %tr
+        %td= link_to community.id, community_path(community)
+        %td= community.name
+        %td= community.url
+        %td=l community.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_community_path(community), :class => 'btn btn-default btn-xs'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), community_path(community), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
 
-%br
-
-= link_to 'New Community', new_community_path
+= link_to t('.new', :default => t("helpers.links.new")), new_community_path, :class => 'btn btn-primary'

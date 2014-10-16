@@ -1,12 +1,17 @@
-%p#notice= notice
+- model_class = Community
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %b Name:
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
   = @community.name
 %p
-  %b Url:
+  %strong= model_class.human_attribute_name(:url) + ':'
+  %br
   = @community.url
 
-= link_to 'Edit', edit_community_path(@community)
-\|
-= link_to 'Back', communities_path
+
+= link_to t('.back', :default => t("helpers.links.back")), communities_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_community_path(@community), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), community_path(@community), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
