@@ -20,3 +20,7 @@
 .idea
 */passwords.rb
 SocialLibrary.iml
+
+# AWS認証情報が含まれるため削除
+# 本来ならばpasswords.rbなどに統一したい
+config/application.rb
