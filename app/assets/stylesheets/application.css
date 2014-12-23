@@ -19,5 +19,6 @@
  *= require 'masonry/infinitescroll'
  *= require 'masonry/right-to-left'
  *= require 'masonry/transitions'
+ *= require font-awesome
  */
 

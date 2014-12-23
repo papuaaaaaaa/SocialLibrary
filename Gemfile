@@ -48,6 +48,7 @@ gem 'amazon-ecs'
 gem 'nokogiri', '~> 1.6.1'
 gem 'pg', '~> 0.17.1', groups: %w(production), require: false
 gem 'rails_12factor', groups: %w(production)
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

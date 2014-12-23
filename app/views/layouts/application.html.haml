@@ -25,12 +25,13 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand(href="/")= t('top.home')
+      %a.navbar-brand(href="/")=fa_icon 'home', class: 'fa-lg'
+      %a.navbar-brand(href=wanted_books_path)=fa_stacked_icon 'book', base: 'level-down'
+      %a.navbar-brand(href=provided_books_path)=fa_stacked_icon 'book', base: 'level-up'
+      %a.navbar-brand(href=communities_path)=fa_icon 'group', class: 'fa-lg'
+
       .navbar-collapse.collapse.navbar-responsive-collapse
         %ul.nav.navbar-nav
-          %li= link_to WantedBook.model_name.human.pluralize.titleize, wanted_books_path
-          %li= link_to ProvidedBook.model_name.human.pluralize.titleize, provided_books_path
-          %li= link_to Community.model_name.human.pluralize.titleize, communities_path
           -#%li= link_to SaleProduct.model_name.human.pluralize.titleize, sale_products_path
           -#%li= link_to Task.model_name.human.pluralize.titleize, tasks_path
           -#%li= link_to TaskSale.model_name.human.pluralize.titleize, task_sales_path
